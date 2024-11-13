@@ -53,29 +53,16 @@ public class AddPartScreenController implements StageImp {
 
     @FXML
     void handleCancel(ActionEvent event) {
-    	openMain();
+    	Loader.openMain(stage);
     }
 
     @FXML
     void handleSave(ActionEvent event) {
-    	openMain();
+    	Loader.openMain(stage);
     }
 
 	@Override
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}
-	
-	void openMain() {
-		try {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/Main.fxml"));
-    		BorderPane root = (BorderPane) loader.load();
-        	MainController controller = loader.getController();
-        	controller.setStage(stage);
-        	Loader.loadFXML(stage, root);
-    	}catch(Exception e) {
-    		e.printStackTrace();
-    	}
-	}
-
 }

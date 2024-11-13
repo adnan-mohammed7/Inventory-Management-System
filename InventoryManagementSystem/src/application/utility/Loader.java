@@ -1,5 +1,6 @@
 package application.utility;
 
+import application.Main;
 import application.controllers.MainController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,7 +23,8 @@ public class Loader {
 	
 	public static void openMain(Stage stage) {
 		try {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/Main.fxml"));
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("/application/views/Main.fxml"));
     		BorderPane root = (BorderPane) loader.load();
         	MainController controller = loader.getController();
         	controller.setStage(stage);

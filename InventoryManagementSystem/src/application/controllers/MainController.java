@@ -92,7 +92,8 @@ public class MainController implements StageImp {
     	try {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/AddProductScreen.fxml"));
     		BorderPane root = (BorderPane) loader.load();
-        	AddProductScreenController contoller = loader.getController();
+        	AddProductScreenController controller = loader.getController();
+        	controller.setStage(stage);
         	Loader.loadFXML(stage, root);
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -129,7 +130,8 @@ public class MainController implements StageImp {
     	try {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/ModifyPartScreen.fxml"));
     		BorderPane root = (BorderPane) loader.load();
-        	ModifyPartScreenController contoller = loader.getController();
+        	ModifyPartScreenController controller = loader.getController();
+        	controller.setStage(stage);
         	Loader.loadFXML(stage, root);
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -141,7 +143,8 @@ public class MainController implements StageImp {
     	try {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/ModifyProductScreen.fxml"));
     		BorderPane root = (BorderPane) loader.load();
-        	ModifyProductScreenController contoller = loader.getController();
+        	ModifyProductScreenController controller = loader.getController();
+        	controller.setStage(stage);
         	Loader.loadFXML(stage, root);
     	}catch(Exception e) {
     		e.printStackTrace();
