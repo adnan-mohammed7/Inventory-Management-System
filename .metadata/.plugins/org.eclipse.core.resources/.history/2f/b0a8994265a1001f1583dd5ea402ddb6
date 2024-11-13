@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.AddPartScreenController">
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.PartScreenController">
    <center>
       <VBox prefHeight="800.0" style="-fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 3;" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="45.0">
                <children>
-                  <Label text="Add Product">
+                  <Label text="Add Products">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>

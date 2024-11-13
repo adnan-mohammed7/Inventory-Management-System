@@ -20,7 +20,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="45.0">
                <children>
-                  <Label text="Add Products">
+                  <Label text="Add Product">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
