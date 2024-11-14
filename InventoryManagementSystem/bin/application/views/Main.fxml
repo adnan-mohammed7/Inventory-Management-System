@@ -38,7 +38,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BASELINE" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="partSearchField" onAction="#handlePartSearch" promptText="Search by PartID or Name" GridPane.columnIndex="1">
+                  <TextField fx:id="partSearchField" promptText="Search by PartID or Name" GridPane.columnIndex="1">
                         <GridPane.margin>
                            <Insets />
                         </GridPane.margin>
@@ -109,7 +109,7 @@
                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BASELINE" vgrow="SOMETIMES" />
                  </rowConstraints>
                   <children>
-                     <TextField fx:id="productSearchField" onAction="#handleProductSearch" promptText="Search by ProductID or Name" GridPane.columnIndex="1">
+                     <TextField fx:id="productSearchField" promptText="Search by ProductID or Name" GridPane.columnIndex="1">
                         <font>
                            <Font size="20.0" />
                         </font>

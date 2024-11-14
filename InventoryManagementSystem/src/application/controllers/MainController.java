@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -79,6 +80,31 @@ public class MainController implements StageImp {
 
     @FXML
     private TableView<Products> productsTable;
+    
+    @FXML
+    void initialize() {
+    	partIDCol.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
+    	partInvLvlCol.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
+    	partNameCol.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
+        partPriceCol.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));;
+        
+        partsTable.setItems(inventory.getAllParts());
+        
+        prodIDCol.setCellValueFactory(new PropertyValueFactory<Products, Integer>("id"));
+    	prodInvLvlCol.setCellValueFactory(new PropertyValueFactory<Products, Integer>("stock"));
+    	prodNameCol.setCellValueFactory(new PropertyValueFactory<Products, String>("name"));
+        prodPriceCol.setCellValueFactory(new PropertyValueFactory<Products, Double>("price"));;
+        
+        productsTable.setItems(inventory.getAllProducts());
+    	
+    	partSearchField.textProperty().addListener((obj,ov,nv)->{
+    		partsTable.setItems(inventory.searchPartByName(nv));
+    	});
+    	
+    	productSearchField.textProperty().addListener((obj,ov,nv)->{
+    		productsTable.setItems(inventory.searchProductByName(nv));
+    	});
+    }
 
     @FXML
     void addPart(ActionEvent event) {
@@ -108,27 +134,19 @@ public class MainController implements StageImp {
 
     @FXML
     void deletePart(ActionEvent event) {
-
+    	if(partsTable.getSelectionModel().getSelectedItem() != null)
+    		inventory.deletePart(partsTable.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void deleteProduct(ActionEvent event) {
-
+    	if(productsTable.getSelectionModel().getSelectedItem() != null)
+    		inventory.deleteProducts(productsTable.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void exitApplication(ActionEvent event) {
     	Platform.exit();
-    }
-
-    @FXML
-    void handlePartSearch(ActionEvent event) {
-    	
-    }
-
-    @FXML
-    void handleProductSearch(ActionEvent event) {
-
     }
 
     @FXML

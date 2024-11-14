@@ -59,6 +59,11 @@ public class AddPartScreenController implements StageImp {
 
     @FXML
     void handleSave(ActionEvent event) {
+    	MainController.getInventory().addPart(new InHouse(10, "SenecaAdnan", 15.0, 70, 20, 25, 30));
+    	MainController.getInventory().addPart(new InHouse(10, "SenecaSukhad", 15.0, 70, 20, 25, 30));
+    	MainController.getInventory().addPart(new InHouse(10, "Alien", 15.0, 70, 20, 25, 30));
+    	MainController.getInventory().addPart(new InHouse(10, "Sen ma", 15.0, 70, 20, 25, 30));
+    	
     	Loader.openMain(stage);
     }
 
