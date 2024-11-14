@@ -1,0 +1,9 @@
+package application.models;
+
+import application.abstractClasses.Part;
+import javafx.collections.ObservableList;
+
+public class Inventory {
+	ObservableList<Part> allParts;
+	ObervableList<Products> allProducts;
+}

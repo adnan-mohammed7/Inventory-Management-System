@@ -8,6 +8,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Loader {
+	public static Scene scene;
+	public static MainController controller;
 	public static void loadFXML(Stage ps, BorderPane root) {
 		try {			
 			Scene scene = new Scene(root);
@@ -23,14 +25,22 @@ public class Loader {
 	
 	public static void openMain(Stage stage) {
 		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/application/views/Main.fxml"));
-    		BorderPane root = (BorderPane) loader.load();
-        	MainController controller = loader.getController();
         	controller.setStage(stage);
-        	Loader.loadFXML(stage, root);
+			stage.close();
+			stage.setScene(scene);
+			stage.setMaximized(true);
+			stage.setResizable(false);
+			stage.show();
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
+	}
+	
+	public static void setBorderPane(Scene sc) {
+		scene = sc;
+	}
+	
+	public static void setController(MainController control) {
+		controller = control;
 	}
 }

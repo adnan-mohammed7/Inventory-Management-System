@@ -1,8 +1,11 @@
 package application.controllers;
 
 import application.interfaces.StageImp;
+import application.models.InHouse;
+import application.models.Inventory;
 import application.utility.Loader;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +18,8 @@ import javafx.stage.Stage;
 
 public class MainController implements StageImp {
 	
-	Stage stage;
+	private Stage stage;
+	private static Inventory inventory = new Inventory();
 
     @FXML
     private Button addProdBtn;
@@ -117,7 +121,7 @@ public class MainController implements StageImp {
 
     @FXML
     void handlePartSearch(ActionEvent event) {
-
+    	
     }
 
     @FXML
@@ -154,5 +158,9 @@ public class MainController implements StageImp {
     @Override
     public void setStage(Stage stage) {
     	this.stage = stage;
+    }
+    
+    public static Inventory getInventory() {
+    	return inventory;
     }
 }

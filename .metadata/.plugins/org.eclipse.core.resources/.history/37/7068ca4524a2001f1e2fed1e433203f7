@@ -1,0 +1,14 @@
+package application.abstractClasses;
+
+public abstract class Part {
+	int id;
+	String name;
+	double price;
+	int stock;
+	int min;
+	int max;
+	Part(int id, String name, double price, int stock, int min, int max){
+		
+	}
+
+}

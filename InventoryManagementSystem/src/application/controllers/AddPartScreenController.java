@@ -1,6 +1,7 @@
 package application.controllers;
 
 import application.interfaces.StageImp;
+import application.models.InHouse;
 import application.utility.Loader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
