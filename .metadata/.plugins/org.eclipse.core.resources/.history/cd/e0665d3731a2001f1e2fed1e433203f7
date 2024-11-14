@@ -78,7 +78,7 @@ public class MainController implements StageImp {
     private TextField productSearchField;
 
     @FXML
-    private TableView<Products> productsTable;
+    private TableView<?> productsTable;
 
     @FXML
     void addPart(ActionEvent event) {

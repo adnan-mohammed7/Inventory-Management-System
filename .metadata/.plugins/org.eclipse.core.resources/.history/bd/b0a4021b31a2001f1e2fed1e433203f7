@@ -4,7 +4,6 @@ import application.abstractClasses.Part;
 import application.interfaces.StageImp;
 import application.models.InHouse;
 import application.models.Inventory;
-import application.models.Products;
 import application.utility.Loader;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -60,25 +59,25 @@ public class MainController implements StageImp {
     private TextField partSearchField;
 
     @FXML
-    private TableView<Part> partsTable;
+    private TableView<?> partsTable;
 
     @FXML
-    private TableColumn<Products, Integer> prodIDCol;
+    private TableColumn<?, ?> prodIDCol;
 
     @FXML
-    private TableColumn<Products, Integer> prodInvLvlCol;
+    private TableColumn<?, ?> prodInvLvlCol;
 
     @FXML
-    private TableColumn<Products, String> prodNameCol;
+    private TableColumn<?, ?> prodNameCol;
 
     @FXML
-    private TableColumn<Products, Double> prodPriceCol;
+    private TableColumn<?, ?> prodPriceCol;
 
     @FXML
     private TextField productSearchField;
 
     @FXML
-    private TableView<Products> productsTable;
+    private TableView<?> productsTable;
 
     @FXML
     void addPart(ActionEvent event) {
