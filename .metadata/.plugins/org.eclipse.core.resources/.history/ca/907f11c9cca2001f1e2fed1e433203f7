@@ -1,0 +1,11 @@
+package application.utility;
+
+public class Validate {
+	public static boolean validateFields(String str){
+		try {
+			
+		}catch(NumberFormatException e) {
+			
+		}
+	}
+}

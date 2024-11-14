@@ -156,6 +156,7 @@ public class MainController implements StageImp {
     		BorderPane root = (BorderPane) loader.load();
         	ModifyPartScreenController controller = loader.getController();
         	controller.setStage(stage);
+        	controller.setPart(partsTable.getSelectionModel().getSelectedItem());
         	Loader.loadFXML(stage, root);
     	}catch(Exception e) {
     		e.printStackTrace();

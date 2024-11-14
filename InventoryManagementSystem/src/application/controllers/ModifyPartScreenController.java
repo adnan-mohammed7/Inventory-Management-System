@@ -1,5 +1,6 @@
 package application.controllers;
 
+import application.abstractClasses.Part;
 import application.interfaces.StageImp;
 import application.utility.Loader;
 import javafx.event.ActionEvent;
@@ -13,6 +14,8 @@ import javafx.stage.Stage;
 public class ModifyPartScreenController implements StageImp {
 	
 	private Stage stage;
+	
+	private Part part;
 
     @FXML
     private Button cancelBtn;
@@ -63,6 +66,10 @@ public class ModifyPartScreenController implements StageImp {
 	@Override
 	public void setStage(Stage stage) {
 		this.stage = stage;
+	}
+	
+	public void setPart(Part part) {
+		this.part = part;
 	}
 
 }

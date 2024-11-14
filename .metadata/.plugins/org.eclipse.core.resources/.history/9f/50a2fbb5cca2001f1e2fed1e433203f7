@@ -1,0 +1,7 @@
+package application.utility;
+
+public class Validate {
+	ppublic static boolean validateFields(String str){
+		return false;
+	}
+}

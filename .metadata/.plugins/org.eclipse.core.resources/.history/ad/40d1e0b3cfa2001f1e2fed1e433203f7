@@ -1,0 +1,51 @@
+package application.utility;
+
+import javafx.scene.control.TextField;
+
+public class Validate {
+	public static int validateIntger(String str){
+		try {
+			return Integer.parseInt(str);
+		}catch(NumberFormatException e) {
+			return -1;
+		}
+	}
+	
+	public static double validateDouble(String str){
+		try {
+			return Double.parseDouble(str);
+		}catch(NumberFormatException e) {
+			return -1;
+		}
+	}
+	
+	public static boolean validateValues(int inv, int min, int max) {
+		if (inv < min || inv > max) {
+			return false;
+		}
+		if(min > max) {
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean emptyFields(TextField name, TextField inv, TextField price, TextField max, TextField min, TextField machineCompany) {
+		if (name.getText().isBlank()) {
+			return false;
+		}else if(inv.getText().isBlank()) {
+			
+		}else if(price.getText().isBlank()) {
+			
+		}else if(max.getText().isBlank()) {
+			
+		}else if(min.getText().isBlank()) {
+			
+		}else if(machineCompany.getText().isBlank()) {
+			
+		}
+	}
+	
+	public static boolean validateFields(TextField name, TextField inv, TextField price, TextField max, TextField min, TextField machineCompany) {
+		emptyFields(name, inv, price, max, min, machineCompany);
+	}
+}

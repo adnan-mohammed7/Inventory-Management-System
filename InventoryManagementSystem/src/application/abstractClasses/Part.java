@@ -1,14 +1,17 @@
 package application.abstractClasses;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public abstract class Part {
+	public static AtomicInteger counter = new AtomicInteger(1);
 	int id;
 	String name;
 	double price;
 	int stock;
 	int min;
 	int max;
-	public Part(int id, String name, double price, int stock, int min, int max){
-		this.id = id;
+	public Part(String name, double price, int stock, int min, int max){
+		this.id = counter.getAndIncrement();
 		this.name = name;
 		this.price = price;
 		this.stock = stock;
