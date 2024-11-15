@@ -160,7 +160,8 @@ public class MainController implements StageImp {
     void deleteProduct(ActionEvent event) {
     	if(productsTable.getSelectionModel().getSelectedItem() != null) {
     		Products selected =  productsTable.getSelectionModel().getSelectedItem();
-    		if(selected.getAllAssociatedParts().size() == 0) { 		
+    		if(selected.getAllAssociatedParts().size() == 0) {
+        		
         		if(Validate.showConfirmationAlert("Do you want to delete the selected product?")) {
         			inventory.deleteProducts(selected);
         		}

@@ -159,8 +159,8 @@ public class MainController implements StageImp {
     @FXML
     void deleteProduct(ActionEvent event) {
     	if(productsTable.getSelectionModel().getSelectedItem() != null) {
-    		Products selected =  productsTable.getSelectionModel().getSelectedItem();
-    		if(selected.getAllAssociatedParts().size() == 0) { 		
+    		if(selected.getAllAssociatedParts().size() == 0) {
+        		Products selected =  productsTable.getSelectionModel().getSelectedItem();
         		if(Validate.showConfirmationAlert("Do you want to delete the selected product?")) {
         			inventory.deleteProducts(selected);
         		}

@@ -150,25 +150,25 @@ public class MainController implements StageImp {
     	if(partsTable.getSelectionModel().getSelectedItem() != null) {
 			if(Validate.showConfirmationAlert("Do you want to delete the selected part?")) {
 				inventory.deletePart(partsTable.getSelectionModel().getSelectedItem());    		
-			}
-    	}else {
-			Validate.showAlert("Please select the product to delete!");
-		}
+    		}else {
+    			Validate.showAlert("Please select the product to delete!");
+    			}
+    	}
     }
 
     @FXML
     void deleteProduct(ActionEvent event) {
-    	if(productsTable.getSelectionModel().getSelectedItem() != null) {
-    		Products selected =  productsTable.getSelectionModel().getSelectedItem();
-    		if(selected.getAllAssociatedParts().size() == 0) { 		
-        		if(Validate.showConfirmationAlert("Do you want to delete the selected product?")) {
+    	if(Validate.showConfirmationAlert("Do you want to delete the selected product?")) {
+    		if(productsTable.getSelectionModel().getSelectedItem() != null) {
+        		Products selected =  productsTable.getSelectionModel().getSelectedItem();
+        		if(selected.getAllAssociatedParts().size() == 0) {
         			inventory.deleteProducts(selected);
+        		}else {
+        			Validate.showAlert("Please remove all the associated parts of the selected product!");
         		}
         	}else {
-    			Validate.showAlert("Please remove all the associated parts of the selected product!");
-    		}
-    	}else {
-    		Validate.showAlert("Please select the product to delete!");
+        		Validate.showAlert("Please select the product to delete!");
+        	}
     	}
     }
 

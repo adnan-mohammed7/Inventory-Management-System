@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javafx.application.Platform"/>
-    <fullyQualifiedTypeName name="application.utility.Loader"/>
+    <fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
+    <fullyQualifiedTypeName name="application.Main"/>
     <fullyQualifiedTypeName name="application.interfaces.StageImp"/>
+    <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
+    <fullyQualifiedTypeName name="application.utility.Loader"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.ToggleGroup"/>
+    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
+    <fullyQualifiedTypeName name="application.models.Outsourced"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.Alert.AlertType"/>
+    <fullyQualifiedTypeName name="application.models.InHouse"/>
+    <fullyQualifiedTypeName name="application.abstractClasses.Part"/>
+    <fullyQualifiedTypeName name="application.models.Inventory"/>
+    <fullyQualifiedTypeName name="application.controllers.MainController"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
+    <fullyQualifiedTypeName name="application.models.Products"/>
+    <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.ButtonType"/>
+    <fullyQualifiedTypeName name="application.utility.Validate"/>
 </qualifiedTypeNameHistroy>

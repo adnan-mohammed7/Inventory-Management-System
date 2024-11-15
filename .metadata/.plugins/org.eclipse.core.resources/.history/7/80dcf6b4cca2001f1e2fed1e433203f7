@@ -1,7 +1,0 @@
-package application.utility;
-
-public class Validate {
-	boolean validateFields(String str){
-		return false;
-	}
-}
