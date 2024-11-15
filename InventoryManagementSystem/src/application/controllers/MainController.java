@@ -9,6 +9,8 @@ import application.models.Products;
 import application.utility.Loader;
 import application.utility.Validate;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -148,8 +150,10 @@ public class MainController implements StageImp {
     @FXML
     void deletePart(ActionEvent event) {
     	if(partsTable.getSelectionModel().getSelectedItem() != null) {
+    		Part selected = partsTable.getSelectionModel().getSelectedItem();
 			if(Validate.showConfirmationAlert("Do you want to delete the selected part?")) {
-				inventory.deletePart(partsTable.getSelectionModel().getSelectedItem());    		
+				deleteNoPartProduct(selected);
+				inventory.deletePart(selected);    		
 			}
     	}else {
 			Validate.showAlert("Please select the product to delete!");
@@ -222,5 +226,19 @@ public class MainController implements StageImp {
     
     public static Inventory getInventory() {
     	return inventory;
+    }
+    
+    void deleteNoPartProduct(Part part) {
+    	ObservableList<Products> productsToRemove = FXCollections.observableArrayList();
+    	for (Products e : inventory.getAllProducts()) {
+    		for(Part p : e.getAllAssociatedParts()) {
+    			if(p.equals(part)) {
+    				productsToRemove.add(e);
+    			}
+    		}
+    	}
+    	for (Products e : productsToRemove) {
+    		inventory.deleteProducts(e);
+    	}
     }
 }
