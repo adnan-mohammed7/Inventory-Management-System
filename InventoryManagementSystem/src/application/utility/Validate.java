@@ -1,5 +1,7 @@
 package application.utility;
 
+import java.util.Optional;
+
 import application.abstractClasses.Part;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -140,5 +142,28 @@ public class Validate {
 			partsCost += e.getPrice();
 		
 		return cost >= partsCost;
+	}
+	
+	public static Boolean showConfirmationAlert(String msg) {
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Error");
+		alert.setHeaderText(null);
+		alert.setContentText(msg);
+		DialogPane dialog = alert.getDialogPane();
+		dialog.setPrefSize(500, 240);
+		dialog.setStyle("-fx-font-size: 20px");
+		
+		ButtonType yes = new ButtonType("Yes");
+		ButtonType no = new ButtonType("No");
+		
+		alert.getButtonTypes().setAll(yes, no);
+		
+		Optional<ButtonType> result = alert.showAndWait();
+		if(result.isPresent()) {
+			if(result.get() == yes) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

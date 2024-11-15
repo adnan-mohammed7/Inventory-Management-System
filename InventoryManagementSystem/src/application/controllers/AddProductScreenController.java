@@ -120,7 +120,9 @@ public class AddProductScreenController implements StageImp {
 
     @FXML
     void handleCancel(ActionEvent event) {
-    	Loader.openMain(stage);
+    	if(Validate.showConfirmationAlert("Do you want to cancel adding the product?")) {
+        	Loader.openMain(stage);	
+    	}
     }
 
     @FXML

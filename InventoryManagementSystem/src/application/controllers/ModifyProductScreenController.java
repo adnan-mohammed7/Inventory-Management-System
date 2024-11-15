@@ -129,7 +129,9 @@ public class ModifyProductScreenController implements StageImp {
 
     @FXML
     void handleCancel(ActionEvent event) {
-    	Loader.openMain(stage);
+    	if(Validate.showConfirmationAlert("Do you want to cancel editing the part?")) {
+        	Loader.openMain(stage);	
+    	}
     }
 
     @FXML
