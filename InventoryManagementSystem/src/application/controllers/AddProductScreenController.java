@@ -2,7 +2,11 @@ package application.controllers;
 
 import application.abstractClasses.Part;
 import application.interfaces.StageImp;
+import application.models.InHouse;
+import application.models.Outsourced;
+import application.models.Products;
 import application.utility.Loader;
+import application.utility.Validate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -43,13 +47,7 @@ public class AddProductScreenController implements StageImp {
     private TextField idField;
 
     @FXML
-    private TextField inventoryFIeld;
-
-    @FXML
-    private TextField machineCompanyField;
-
-    @FXML
-    private Label machineCompanyLabel;
+    private TextField inventoryField;
 
     @FXML
     private TextField maxField;
@@ -109,12 +107,17 @@ public class AddProductScreenController implements StageImp {
         
         selectedParts = FXCollections.observableArrayList();
         selectedPartsTable.setItems(selectedParts);
+        inventoryField.setText("0");
+        
+        idField.setText(String.valueOf(Products.counter.get()));
     }
 
     @FXML
     void addPart(ActionEvent event) {
     	if(allPartsTable.getSelectionModel().getSelectedItem() != null) {
     		selectedParts.add(allPartsTable.getSelectionModel().getSelectedItem());
+    	}else {
+    		Validate.showAlert("Please select a part to add!");
     	}
     }
 
@@ -125,13 +128,29 @@ public class AddProductScreenController implements StageImp {
 
     @FXML
     void handleSave(ActionEvent event) {
-    	Loader.openMain(stage);
+    	if(Validate.validateProductFields(nameField, inventoryField, priceField, maxField, minField)) {
+    		if(selectedParts.size() > 0) {
+    			Products newProduct;
+        		
+        		newProduct = new Products(nameField.getText(), Double.parseDouble(priceField.getText()),
+    					Integer.parseInt(inventoryField.getText().isBlank() ? "0" : inventoryField.getText()),
+    					Integer.parseInt(minField.getText()),
+    					Integer.parseInt(maxField.getText()));
+        			
+        		MainController.getInventory().addProduct(newProduct);
+        		Loader.openMain(stage);	
+    		}else {
+    			Validate.showAlert("Please select atleast 1 part for product!");
+    		}
+    	}
     }
 
     @FXML
     void removePart(ActionEvent event) {
     	if(selectedPartsTable.getSelectionModel().getSelectedItem() != null) {
     		selectedParts.remove(selectedPartsTable.getSelectionModel().getSelectedItem());
+    	}else {
+    		Validate.showAlert("Please select a part to delete!");
     	}
     }
 

@@ -80,7 +80,7 @@ public class ModifyPartScreenController implements StageImp {
 
     @FXML
     void handleSave(ActionEvent event) {
-    	if(Validate.validateFields(nameField, inventoryField, priceField, maxField, minField, machineCompanyField, inHouseRadioBtn.isSelected())) {
+    	if(Validate.validatePartFields(nameField, inventoryField, priceField, maxField, minField, machineCompanyField, inHouseRadioBtn.isSelected())) {
     		Part updatedPart;
     		if(inHouseRadioBtn.isSelected()) {
     			updatedPart = new InHouse(oldId, nameField.getText(), Double.parseDouble(priceField.getText()),

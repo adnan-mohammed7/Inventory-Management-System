@@ -11,4 +11,5 @@ module InventoryManagementSystem {
 	exports application.utility to javafx.fxml, javafx.graphics;
 	exports application.abstractClasses to javafx.fxml, javafx.graphics;
 	exports application.models to javafx.fxml, javafx.graphics;
+	opens application.models to javafx.base;
 }

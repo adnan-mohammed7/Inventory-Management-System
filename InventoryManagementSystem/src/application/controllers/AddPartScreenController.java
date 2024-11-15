@@ -82,7 +82,7 @@ public class AddPartScreenController implements StageImp {
 
     @FXML
     void handleSave(ActionEvent event) {
-    	if(Validate.validateFields(nameField, inventoryField, priceField, maxField, minField, machineCompanyField, inHouseRadioBtn.isSelected())) {
+    	if(Validate.validatePartFields(nameField, inventoryField, priceField, maxField, minField, machineCompanyField, inHouseRadioBtn.isSelected())) {
     		Part newPart;
     		if(inHouseRadioBtn.isSelected()) {
     			newPart = new InHouse(nameField.getText(), Double.parseDouble(priceField.getText()),
