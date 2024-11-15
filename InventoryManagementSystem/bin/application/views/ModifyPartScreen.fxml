@@ -41,9 +41,9 @@
       </HBox>
    </top>
    <left>
-      <GridPane hgap="35.0" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <GridPane hgap="35.0" prefHeight="600.0" prefWidth="700.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="180.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="180.0" />

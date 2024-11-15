@@ -2,12 +2,11 @@ package application.controllers;
 
 import application.abstractClasses.Part;
 import application.interfaces.StageImp;
-import application.models.InHouse;
 import application.models.Inventory;
 import application.models.Products;
 import application.utility.Loader;
+import application.utility.Validate;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -151,28 +150,37 @@ public class MainController implements StageImp {
 
     @FXML
     void modifyPart(ActionEvent event) {
-    	try {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/ModifyPartScreen.fxml"));
-    		BorderPane root = (BorderPane) loader.load();
-        	ModifyPartScreenController controller = loader.getController();
-        	controller.setStage(stage);
-        	controller.setPart(partsTable.getSelectionModel().getSelectedItem());
-        	Loader.loadFXML(stage, root);
-    	}catch(Exception e) {
-    		e.printStackTrace();
+    	if(partsTable.getSelectionModel().getSelectedItem() != null) {
+    		try {
+        		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/ModifyPartScreen.fxml"));
+        		BorderPane root = (BorderPane) loader.load();
+            	ModifyPartScreenController controller = loader.getController();
+            	controller.setStage(stage);
+            	controller.setPart(partsTable.getSelectionModel().getSelectedItem());
+            	controller.setSelectedIndex(partsTable.getSelectionModel().getSelectedIndex());
+            	Loader.loadFXML(stage, root);
+        	}catch(Exception e) {
+        		e.printStackTrace();
+        	}
+    	}else {
+    		Validate.showAlert("Please Select a Part to Modify!");
     	}
     }
 
     @FXML
     void modifyProduct(ActionEvent event) {
-    	try {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/ModifyProductScreen.fxml"));
-    		BorderPane root = (BorderPane) loader.load();
-        	ModifyProductScreenController controller = loader.getController();
-        	controller.setStage(stage);
-        	Loader.loadFXML(stage, root);
-    	}catch(Exception e) {
-    		e.printStackTrace();
+    	if(productsTable.getSelectionModel().getSelectedItem() != null) {
+    		try {
+        		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/views/ModifyProductScreen.fxml"));
+        		BorderPane root = (BorderPane) loader.load();
+            	ModifyProductScreenController controller = loader.getController();
+            	controller.setStage(stage);
+            	Loader.loadFXML(stage, root);
+        	}catch(Exception e) {
+        		e.printStackTrace();
+        	}
+    	}else {
+    		Validate.showAlert("Please Select a Product to Modify!");
     	}
     }
     

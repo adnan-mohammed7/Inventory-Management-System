@@ -1,11 +1,7 @@
 package application.utility;
 
-import application.abstractClasses.Part;
-import application.models.InHouse;
-import application.models.Outsourced;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 
@@ -74,22 +70,6 @@ public class Validate {
 		}
 		
 		return true;
-	}
-	
-	public static Part getPart(TextField name, TextField inv, TextField price, TextField max, TextField min, TextField machineCompany, boolean check) {
-		if(check) {
-			return new InHouse(name.getText(), Double.parseDouble(price.getText()),
-					Integer.parseInt(inv.getText()),
-					Integer.parseInt(min.getText()),
-					Integer.parseInt(max.getText()),
-					Integer.parseInt(machineCompany.getText()));
-		}else {
-			return new Outsourced(name.getText(), Double.parseDouble(price.getText()),
-					Integer.parseInt(inv.getText()),
-					Integer.parseInt(min.getText()),
-					Integer.parseInt(max.getText()),
-					machineCompany.getText());
-		}
 	}
 	
 	public static void showAlert(String msg) {
