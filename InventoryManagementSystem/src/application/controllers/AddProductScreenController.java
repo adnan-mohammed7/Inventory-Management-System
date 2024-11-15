@@ -1,7 +1,10 @@
 package application.controllers;
 
+import application.abstractClasses.Part;
 import application.interfaces.StageImp;
 import application.utility.Loader;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class AddProductScreenController implements StageImp {
@@ -18,19 +22,19 @@ public class AddProductScreenController implements StageImp {
     private Button addBtn;
 
     @FXML
-    private TableColumn<?, ?> allInvLvlCol;
+    private TableColumn<Part, Integer> allInvLvlCol;
 
     @FXML
-    private TableColumn<?, ?> allPartIDCol;
+    private TableColumn<Part, Integer> allPartIDCol;
 
     @FXML
-    private TableColumn<?, ?> allPartNameCol;
+    private TableColumn<Part, String> allPartNameCol;
 
     @FXML
-    private TableView<?> allPartsTable;
+    private TableView<Part> allPartsTable;
 
     @FXML
-    private TableColumn<?, ?> allPriceCol;
+    private TableColumn<Part, Double> allPriceCol;
 
     @FXML
     private Button cancelBtn;
@@ -69,23 +73,49 @@ public class AddProductScreenController implements StageImp {
     private TextField searchField;
 
     @FXML
-    private TableColumn<?, ?> selInvLvlCol;
+    private TableColumn<Part, Integer> selInvLvlCol;
 
     @FXML
-    private TableColumn<?, ?> selPartIDCol;
+    private TableColumn<Part, Integer> selPartIDCol;
 
     @FXML
-    private TableColumn<?, ?> selPartNameCol;
+    private TableColumn<Part, String> selPartNameCol;
 
     @FXML
-    private TableColumn<?, ?> selPriceCol;
+    private TableColumn<Part, Double> selPriceCol;
 
     @FXML
-    private TableView<?> selectedPartsTable;
+    private TableView<Part> selectedPartsTable;
+    
+    ObservableList<Part> selectedParts;
+    
+    @FXML
+    void initialize() {
+    	allPartIDCol.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
+    	allInvLvlCol.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
+    	allPartNameCol.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
+        allPriceCol.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));;
+        
+        selPartIDCol.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));
+    	selInvLvlCol.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
+    	selPartNameCol.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
+        selPriceCol.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));;
+        
+        allPartsTable.setItems(MainController.getInventory().getAllParts());
+        
+        searchField.textProperty().addListener((obj, ov, nv) ->{
+        	allPartsTable.setItems(MainController.getInventory().searchPartByName(nv));
+        });
+        
+        selectedParts = FXCollections.observableArrayList();
+        selectedPartsTable.setItems(selectedParts);
+    }
 
     @FXML
     void addPart(ActionEvent event) {
-
+    	if(allPartsTable.getSelectionModel().getSelectedItem() != null) {
+    		selectedParts.add(allPartsTable.getSelectionModel().getSelectedItem());
+    	}
     }
 
     @FXML
@@ -100,7 +130,9 @@ public class AddProductScreenController implements StageImp {
 
     @FXML
     void removePart(ActionEvent event) {
-
+    	if(selectedPartsTable.getSelectionModel().getSelectedItem() != null) {
+    		selectedParts.remove(selectedPartsTable.getSelectionModel().getSelectedItem());
+    	}
     }
 
 	@Override

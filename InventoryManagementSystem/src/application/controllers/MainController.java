@@ -2,7 +2,9 @@ package application.controllers;
 
 import application.abstractClasses.Part;
 import application.interfaces.StageImp;
+import application.models.InHouse;
 import application.models.Inventory;
+import application.models.Outsourced;
 import application.models.Products;
 import application.utility.Loader;
 import application.utility.Validate;
@@ -103,6 +105,12 @@ public class MainController implements StageImp {
     	productSearchField.textProperty().addListener((obj,ov,nv)->{
     		productsTable.setItems(inventory.searchProductByName(nv));
     	});
+    	
+    	inventory.addPart(new Outsourced("Cement", 75.0, 50, 10, 100, "Ambuja"));
+    	inventory.addPart(new InHouse("Brick", 75.0, 50, 10, 100, 785));
+    	inventory.addPart(new InHouse("Plaster", 75.0, 50, 10, 100, 850));
+    	inventory.addPart(new InHouse("SenecaBook", 75.0, 50, 10, 100, 900));
+    	inventory.addPart(new Outsourced("Seneca Library", 75.0, 50, 10, 100, "Seneca"));
     }
 
     @FXML
@@ -133,14 +141,25 @@ public class MainController implements StageImp {
 
     @FXML
     void deletePart(ActionEvent event) {
-    	if(partsTable.getSelectionModel().getSelectedItem() != null)
-    		inventory.deletePart(partsTable.getSelectionModel().getSelectedItem());
+    	if(partsTable.getSelectionModel().getSelectedItem() != null) {
+    		inventory.deletePart(partsTable.getSelectionModel().getSelectedItem());    		
+    	}else {
+    		Validate.showAlert("Please select the product to delete!");
+    	}
     }
 
     @FXML
     void deleteProduct(ActionEvent event) {
-    	if(productsTable.getSelectionModel().getSelectedItem() != null)
-    		inventory.deleteProducts(productsTable.getSelectionModel().getSelectedItem());
+    	if(productsTable.getSelectionModel().getSelectedItem() != null) {
+    		Products selected =  productsTable.getSelectionModel().getSelectedItem();
+    		if(selected.getAllAssociatedParts().size() == 0) {
+    			inventory.deleteProducts(selected);
+    		}else {
+    			Validate.showAlert("Please remove all the associated parts of the selected product!");
+    		}
+    	}else {
+    		Validate.showAlert("Please select the product to delete!");
+    	}
     }
 
     @FXML
