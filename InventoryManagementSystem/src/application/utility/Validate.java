@@ -1,5 +1,7 @@
 package application.utility;
 
+import application.abstractClasses.Part;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
@@ -129,5 +131,14 @@ public class Validate {
 		dialog.lookupButton(ButtonType.OK).setStyle("-fx-font-size: 20px");
 		
 		alert.show();
+	}
+	
+	public static boolean checkPrice(double cost, ObservableList<Part> selectedParts) {
+		double partsCost = 0.0;
+		
+		for(Part e : selectedParts)
+			partsCost += e.getPrice();
+		
+		return cost >= partsCost;
 	}
 }

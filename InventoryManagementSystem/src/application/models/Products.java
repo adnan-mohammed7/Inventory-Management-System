@@ -3,6 +3,7 @@ package application.models;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import application.abstractClasses.Part;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Products {
@@ -22,6 +23,7 @@ public class Products {
 		this.stock = stock;
 		this.min = min;
 		this.max = max;
+		associatedParts = FXCollections.observableArrayList();
 	}
 	
 	public Products(String name, double price, int stock, int min, int max) {
@@ -31,6 +33,7 @@ public class Products {
 		this.stock = stock;
 		this.min = min;
 		this.max = max;
+		associatedParts = FXCollections.observableArrayList();
 	}
 
 	public int getId() {

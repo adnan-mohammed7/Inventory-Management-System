@@ -111,6 +111,12 @@ public class MainController implements StageImp {
     	inventory.addPart(new InHouse("Plaster", 75.0, 50, 10, 100, 850));
     	inventory.addPart(new InHouse("SenecaBook", 75.0, 50, 10, 100, 900));
     	inventory.addPart(new Outsourced("Seneca Library", 75.0, 50, 10, 100, "Seneca"));
+    	
+    	inventory.addProduct(new Products("Cement", 75.0, 50, 10, 75));
+    	inventory.addProduct(new Products("Brick", 75.0, 50, 10, 100));
+    	inventory.addProduct(new Products("Plaster", 75.0, 50, 10, 100));
+    	inventory.addProduct(new Products("SenecaBook", 75.0, 50, 10, 100));
+    	inventory.addProduct(new Products("Seneca Library", 75.0, 50, 10, 100));
     }
 
     @FXML
@@ -194,6 +200,8 @@ public class MainController implements StageImp {
         		BorderPane root = (BorderPane) loader.load();
             	ModifyProductScreenController controller = loader.getController();
             	controller.setStage(stage);
+            	controller.setProduct(productsTable.getSelectionModel().getSelectedItem());
+            	controller.setSelectedIndex(productsTable.getSelectionModel().getSelectedIndex());
             	Loader.loadFXML(stage, root);
         	}catch(Exception e) {
         		e.printStackTrace();
