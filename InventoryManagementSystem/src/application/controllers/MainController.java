@@ -119,18 +119,6 @@ public class MainController implements StageImp {
     	productSearchField.textProperty().addListener((obj,ov,nv)->{
     		productsTable.setItems(inventory.searchProductByName(nv));
     	});
-    	
-    	inventory.addPart(new Outsourced("Cement", 75.0, 50, 10, 100, "Ambuja"));
-    	inventory.addPart(new InHouse("Brick", 75.0, 50, 10, 100, 785));
-    	inventory.addPart(new InHouse("Plaster", 75.0, 50, 10, 100, 850));
-    	inventory.addPart(new InHouse("SenecaBook", 75.0, 50, 10, 100, 900));
-    	inventory.addPart(new Outsourced("Seneca Library", 75.0, 50, 10, 100, "Seneca"));
-    	
-    	inventory.addProduct(new Products("Cement", 75.0, 50, 10, 75));
-    	inventory.addProduct(new Products("Brick", 75.0, 50, 10, 100));
-    	inventory.addProduct(new Products("Plaster", 75.0, 50, 10, 100));
-    	inventory.addProduct(new Products("SenecaBook", 75.0, 50, 10, 100));
-    	inventory.addProduct(new Products("Seneca Library", 75.0, 50, 10, 100));
     }
 
     @FXML
@@ -234,6 +222,8 @@ public class MainController implements StageImp {
     @Override
     public void setStage(Stage stage) {
     	this.stage = stage;
+    	partsTable.setItems(inventory.getAllParts());
+    	productsTable.setItems(inventory.getAllProducts());
     }
     
     public static Inventory getInventory() {
