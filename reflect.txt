@@ -1,0 +1,14 @@
+/**********************************************
+Workshop #4&5
+Course:<APD 545> - Fall 2024
+Last Name: Mohammed
+First Name: Adnan
+ID: 174731216
+Section: ZAA
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature
+Date: 15th November 2024
+**********************************************/
+
+I have used primitive data types for my project as it did not had a huge difference when compared to property types.
+If I would have user property types instead of primitive types, it could had helped me in modification of parts and products screen where I can bind the textField with the properties but then I had to have a converter for primitive data types apart from string as text fields only accepts string. Another point properties would have been helpful is when I was setting the column cell value for parts and products table.

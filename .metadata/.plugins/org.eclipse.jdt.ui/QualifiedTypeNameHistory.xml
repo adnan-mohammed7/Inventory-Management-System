@@ -18,7 +18,7 @@
     <fullyQualifiedTypeName name="application.controllers.MainController"/>
     <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
     <fullyQualifiedTypeName name="application.models.Products"/>
-    <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
     <fullyQualifiedTypeName name="javafx.scene.control.ButtonType"/>
     <fullyQualifiedTypeName name="application.utility.Validate"/>
+    <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
 </qualifiedTypeNameHistroy>
