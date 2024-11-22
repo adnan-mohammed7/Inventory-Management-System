@@ -12,6 +12,16 @@ Date: 15th November 2024
 
 package application.controllers;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import application.abstractClasses.Part;
 import application.interfaces.StageImp;
 import application.models.InHouse;
@@ -95,6 +105,18 @@ public class MainController implements StageImp {
 
     @FXML
     private TableView<Products> productsTable;
+    
+    @FXML
+    private Button loadDB;
+
+    @FXML
+    private Button loadFile;
+    
+    @FXML
+    private Button saveDB;
+
+    @FXML
+    private Button saveFile;
     
     @FXML
     void initialize() {
@@ -241,6 +263,47 @@ public class MainController implements StageImp {
     	}
     	for (Products e : productsToRemove) {
     		inventory.deleteProducts(e);
+    	}
+    }
+    
+    @FXML
+    void loadDataFromDB(ActionEvent event) {
+
+    }
+
+    @FXML
+    void loadDataFromFile(ActionEvent event) {
+    	try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("inventory.ser"))){
+    		List<Part> parts = (List<Part>) in.readObject();
+    		List<Products> products = (List<Products>) in.readObject();
+    		inventory.getAllParts().setAll(parts);
+    		inventory.getAllProducts().setAll(products);
+    		
+    	}catch(IOException ex) {
+    		ex.printStackTrace();
+    	}catch(ClassNotFoundException ex) {
+    		ex.printStackTrace();
+    	}catch(Exception ex) {
+    		ex.printStackTrace();
+    	}
+    }
+    
+    @FXML
+    void saveDataToDB(ActionEvent event) {
+
+    }
+
+    @FXML
+    void saveDataToFile(ActionEvent event) {
+    	try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("inventory.ser"))){
+    		List<Part> parts = new ArrayList<Part>(inventory.getAllParts());
+    		List<Products> products = new ArrayList<Products>(inventory.getAllProducts());
+    		out.writeObject(parts);
+    		out.writeObject(products);
+    	}catch(IOException ex) {
+    		ex.printStackTrace();
+    	}catch(Exception ex) {
+    		ex.printStackTrace();
     	}
     }
 }

@@ -12,11 +12,13 @@ Date: 15th November 2024
 
 package application.models;
 
+import java.io.Serializable;
+
 import application.abstractClasses.Part;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Inventory {
+public class Inventory implements Serializable {
 	ObservableList<Part> allParts;
 	ObservableList<Products> allProducts;
 	

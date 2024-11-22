@@ -12,9 +12,11 @@ Date: 15th November 2024
 
 package application.models;
 
+import java.io.Serializable;
+
 import application.abstractClasses.Part;
 
-public class InHouse extends Part {
+public class InHouse extends Part implements Serializable {
 	
 	int machineID;
 

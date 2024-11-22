@@ -12,9 +12,10 @@ Date: 15th November 2024
 
 package application.abstractClasses;
 
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public abstract class Part {
+public abstract class Part implements Serializable {
 	public static AtomicInteger counter = new AtomicInteger(1);
 	int id;
 	String name;

@@ -170,6 +170,42 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
          <children>
+            <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="saveFile" mnemonicParsing="false" onAction="#saveDataToFile" text="Save Data To File">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="loadFile" mnemonicParsing="false" onAction="#loadDataFromFile" text="Load Data from File">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="saveDB" mnemonicParsing="false" onAction="#saveDataToDB" text="Save Data on DB">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="loadDB" mnemonicParsing="false" onAction="#loadDataFromDB" text="Load Data from DB">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
             <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exitApplication" text="Exit">
                <HBox.margin>
                   <Insets bottom="15.0" right="25.0" />

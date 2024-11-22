@@ -12,13 +12,14 @@ Date: 15th November 2024
 
 package application.models;
 
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import application.abstractClasses.Part;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Products {
+public class Products implements Serializable {
 	public static AtomicInteger counter = new AtomicInteger(1);
 	ObservableList<Part> associatedParts;
 	int id;
