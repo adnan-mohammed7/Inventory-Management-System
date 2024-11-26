@@ -17,7 +17,7 @@ import java.io.Serializable;
 import application.abstractClasses.Part;
 
 public class Outsourced extends Part implements Serializable{
-	
+	private static final long serialVersionUID = 1L;
 	private String companyName;
 
 	public Outsourced(String name, double price, int stock, int min, int max, String company) {

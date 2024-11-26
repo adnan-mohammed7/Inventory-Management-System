@@ -12,7 +12,12 @@ Date: 15th November 2024
 
 package application.models;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import application.abstractClasses.Part;
@@ -20,8 +25,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Products implements Serializable {
+	private static final long serialVersionUID = 1L;
 	public static AtomicInteger counter = new AtomicInteger(1);
-	ObservableList<Part> associatedParts;
+	transient ObservableList<Part> associatedParts;
 	int id;
 	String name;
 	double price;
@@ -108,4 +114,17 @@ public class Products implements Serializable {
 	public ObservableList<Part> getAllAssociatedParts(){
 		return this.associatedParts;
 	}
+	
+	
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        oos.defaultWriteObject();
+        oos.writeObject(new ArrayList<>(associatedParts));
+    }
+
+    private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+        ois.defaultReadObject();
+        @SuppressWarnings("unchecked")
+		List<Part> partsList = (List<Part>) ois.readObject();
+        this.associatedParts = FXCollections.observableArrayList(partsList);
+    }
 }

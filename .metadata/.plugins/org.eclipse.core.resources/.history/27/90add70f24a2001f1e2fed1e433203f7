@@ -1,6 +1,0 @@
-package application.abstractClasses;
-
-public abstract class Part {
-	
-
-}

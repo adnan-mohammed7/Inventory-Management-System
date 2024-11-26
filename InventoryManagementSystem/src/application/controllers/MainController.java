@@ -13,9 +13,7 @@ Date: 15th November 2024
 package application.controllers;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -23,10 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.abstractClasses.Part;
+import application.database.Database;
 import application.interfaces.StageImp;
-import application.models.InHouse;
 import application.models.Inventory;
-import application.models.Outsourced;
 import application.models.Products;
 import application.utility.Loader;
 import application.utility.Validate;
@@ -268,14 +265,32 @@ public class MainController implements StageImp {
     
     @FXML
     void loadDataFromDB(ActionEvent event) {
-
+    	Database db = new Database();
+    	inventory.getAllParts().setAll(db.loadParts());
+    	inventory.getAllProducts().setAll(db.loadProducts());
     }
 
     @FXML
     void loadDataFromFile(ActionEvent event) {
     	try(ObjectInputStream in = new ObjectInputStream(new FileInputStream("inventory.ser"))){
-    		List<Part> parts = (List<Part>) in.readObject();
-    		List<Products> products = (List<Products>) in.readObject();
+    		@SuppressWarnings("unchecked")
+			List<Part> parts = (List<Part>) in.readObject();
+    		int count = 0;
+    		for(Part e : parts) {
+    			if (count < e.getId()) {
+    				count = e.getId();
+    			}
+    		}
+    		Part.counter.set(++count);
+    		count = 0;
+    		@SuppressWarnings("unchecked")
+			List<Products> products = (List<Products>) in.readObject();
+    		for(Products e : products) {
+    			if (count < e.getId()) {
+    				count = e.getId();
+    			}
+    		}
+    		Products.counter.set(++count);
     		inventory.getAllParts().setAll(parts);
     		inventory.getAllProducts().setAll(products);
     		
@@ -290,7 +305,11 @@ public class MainController implements StageImp {
     
     @FXML
     void saveDataToDB(ActionEvent event) {
-
+    	Database db = new Database();
+    	db.createPartsTable();
+    	db.createProductTables();
+    	db.insertParts(inventory.getAllParts());
+    	db.insertProducts(inventory.getAllProducts());
     }
 
     @FXML

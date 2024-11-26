@@ -1,7 +1,0 @@
-package application.utility;
-
-public class Loader {
-	public static loadFXML() {
-		
-	}
-}

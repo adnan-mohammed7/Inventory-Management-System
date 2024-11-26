@@ -16,6 +16,7 @@ import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class Part implements Serializable {
+	private static final long serialVersionUID = 1L;
 	public static AtomicInteger counter = new AtomicInteger(1);
 	int id;
 	String name;

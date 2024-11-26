@@ -17,7 +17,7 @@ import java.io.Serializable;
 import application.abstractClasses.Part;
 
 public class InHouse extends Part implements Serializable {
-	
+	private static final long serialVersionUID = 1L;
 	int machineID;
 
 	public InHouse(String name, double price, int stock, int min, int max, int machineID) {
