@@ -13,7 +13,27 @@ A **JavaFX-based Inventory Management System** designed to efficiently manage pa
 ✅ **User-friendly Alerts & Confirmations**
 ✅ **Responsive Design** – Works on different screen sizes
 
-## 📷 Screenshots _(Add Images Here)_
+## 📷 Screenshots
+![Screenshot (72)](https://github.com/user-attachments/assets/2799a6f8-b3c3-4445-9073-317cd0068852)
+
+![Screenshot (73)](https://github.com/user-attachments/assets/706269eb-e317-48ba-83c5-9d4a30289a44)
+
+![Screenshot (74)](https://github.com/user-attachments/assets/12d342ea-2acf-43e7-af19-4486fae52621)
+
+![Screenshot (75)](https://github.com/user-attachments/assets/2931d230-d34f-4aae-b139-6a153cde89fd)
+
+![Screenshot (76)](https://github.com/user-attachments/assets/5232a9ab-367e-464c-abb2-dbad6bfdb097)
+
+![Screenshot (77)](https://github.com/user-attachments/assets/eb1459ca-993a-4604-b0e1-05b3037606be)
+
+![Screenshot (78)](https://github.com/user-attachments/assets/cec1c46f-0d44-432d-8d7d-5b47be28c56c)
+
+
+
+
+
+
+
 
 ## 💻 Technologies Used
 - **Java 17+**
