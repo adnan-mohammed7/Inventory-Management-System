@@ -5,6 +5,13 @@ Managing inventory efficiently is a challenge for businesses of all sizes. This 
 
 This project showcases expertise in **Java development, object-oriented programming (OOP), database management, and UI/UX design**. It follows industry best practices, making it scalable and adaptable for real-world applications.
 
+This project highlights expertise in:
+- **JavaFX & UI Design** – Clean and modern UI using FXML.
+- **Database-Driven Applications** – Real-time inventory updates via MySQL.
+- **Software Engineering Principles** – OOP design, data validation, and structured exception handling.
+- **Performance Optimization** – Efficient search and data retrieval techniques.
+- **Scalability & Extensibility** – Designed for easy upgrades (e.g., cloud integration, mobile app extension).
+
 ## 🛠️ Key Features
 - **Comprehensive Inventory Control** – Add, modify, and delete **parts and products** dynamically.
 - **Smart Search & Filtering** – Quickly find parts and products using **ID or name-based lookup**.
@@ -16,14 +23,6 @@ This project showcases expertise in **Java development, object-oriented programm
 
 ## 🌍 Solving a Real-World Problem
 Inventory mismanagement leads to significant financial losses across industries. This system provides **a structured way to manage stock**, reducing human errors, enhancing accuracy, and improving efficiency. Whether for **retail, manufacturing, or logistics**, businesses can adapt this system to their needs, showcasing my ability to build **scalable, real-world applications**.
-
-## 💡 Why This Project Stands Out
-This project highlights expertise in:
-- **JavaFX & UI Design** – Clean and modern UI using FXML.
-- **Database-Driven Applications** – Real-time inventory updates via MySQL.
-- **Software Engineering Principles** – OOP design, data validation, and structured exception handling.
-- **Performance Optimization** – Efficient search and data retrieval techniques.
-- **Scalability & Extensibility** – Designed for easy upgrades (e.g., cloud integration, mobile app extension).
 
 ## 💻 Technologies Used
 - **Java 17+**
